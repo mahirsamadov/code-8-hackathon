@@ -3,12 +3,12 @@ import { Navigate, Outlet } from 'react-router-dom'
 
 const RequireAuth = () => {
   
-    const auth = true
+    const auth = false
 
     return (
     <>
    {
-    auth ? <Outlet></Outlet> : <Navigate to="/signin" replace></Navigate>
+    auth ? <Outlet></Outlet> : <Navigate to="/signup" replace></Navigate>
    }
     </>
   )
