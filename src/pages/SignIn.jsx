@@ -5,12 +5,15 @@ import singInLeftLogo from "../assets/icon/SingInLogo.png";
 import singInRightImg from "../assets/img/signInRightImg.png";
 
 import { signIn } from "../services/authNetwork";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 
 const SignIn = () => {
   const [credentials, setCredentials] = useState({});
+  const navigate = useNavigate()
 
   const login = () => {
     signIn(credentials);
+    navigate('/confirm')
   };
 
   return (
@@ -41,6 +44,7 @@ const SignIn = () => {
           <img className="singUpRightImg" src={singInRightImg} alt="image" />
         </div>
       </div>
+    
     </div>
   );
 };
