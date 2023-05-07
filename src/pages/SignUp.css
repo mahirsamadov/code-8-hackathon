@@ -1,8 +1,72 @@
-.sign-up{
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    width: 50vw;
-    align-items: center;
-    justify-content: center;
+.sign-up {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  margin: 0 auto;
+}
+.sign-up-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.singUpLeft {
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+input {
+  outline: unset !important;
+}
+.singUpLeft input {
+  margin-bottom: 26px;
+  max-width: 390px;
+  width: 100%;
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid grey;
+  cursor: pointer;
+}
+
+.singUpLeft input:focus {
+  border: 1px solid #155eef;
+}
+.sigInBtn {
+  max-width: 414px;
+  width: 100%;
+  cursor: pointer;
+  padding: 10px;
+  background: #155eef;
+  box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
+  border-radius: 8px;
+  color: white;
+  border: none;
+}
+.singUpLeftLogo {
+  max-width: 405px;
+  width: 100%;
+  margin: 64px 136px 46px;
+}
+.singUpLeftTitle {
+  max-width: 405px;
+  width: 100%;
+  color: black;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+.singUpLeftSubTitle {
+  max-width: 405px;
+  width: 100%;
+  margin-bottom: 25px;
+  color: rgb(80, 78, 78);
+}
+.singUpRightImg {
+  width: 100%;
+  height: 100%;
+}
+.singUpRightImgBox {
+  width: 100vw;
+  overflow: hidden;
 }
