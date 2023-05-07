@@ -3,7 +3,7 @@ import { Navigate, Outlet } from 'react-router-dom'
 
 const RequireAuth = () => {
   
-    const auth = true
+    const auth = false
 
     return (
     <>

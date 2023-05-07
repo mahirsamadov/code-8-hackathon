@@ -36,7 +36,7 @@ const SignUp = () => {
     const token = await signUp(credentials);
     setToken(token);
     navigate("/confirm");
-    setError(true)
+    setError(false)
    }
    else{
        setError("Zəhmət olmasa formu doldurun") 
