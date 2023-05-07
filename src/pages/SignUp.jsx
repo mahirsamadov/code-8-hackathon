@@ -7,14 +7,20 @@ import { signUp } from "../services/authNetwork";
 import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
-  const [credentials, setCredentials] = useState({});
+  const [credentials, setCredentials] = useState(null);
+    const [error, setError] = useState(false)
 
   const navigate = useNavigate();
 
   const register = async () => {
+   if(credentials){
     const token = await signUp(credentials);
     setToken(token);
     navigate("/confirm");
+   }
+   else{
+
+   }
   };
 
   console.log(credentials);
@@ -28,33 +34,33 @@ const SignUp = () => {
           <p className="singUpLeftSubTitle">
             Qeydiyyat prosesinə xoş gelmisiniz!
           </p>
-          <input
+          <input required style={!credentials ? { border: "1px solid red"} : null}
             onChange={credentialsHandler(setCredentials)}
             type="text"
             name="finCode"
             placeholder="Fin kod"
           />
-          <input
+          <input required style={!credentials ? { border: "1px solid red"} : null}
             onChange={credentialsHandler(setCredentials)}
             type="number"
             name="serialNumber"
             placeholder="Seria Nömrəsi"
           />
-          <input
+          <input required style={!credentials ? { border: "1px solid red"} : null}
             onChange={credentialsHandler(setCredentials)}
             type="number"
             name="phoneNumber"
             placeholder="Mobil Nömrə"
             id=""
           />
-          <input
+          <input required style={!credentials ? { border: "1px solid red"} : null}
             onChange={credentialsHandler(setCredentials)}
             type="password"
             name="password"
             placeholder="Şifrə"
             id=""
           />
-          <button onClick={register} className="sigInBtn">
+          <button type="submit" onClick={register} className="sigInBtn">
             Davam et
           </button>
         </div>
