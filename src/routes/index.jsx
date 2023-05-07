@@ -3,6 +3,7 @@ import SignIn from "../pages/SignIn";
 import SignUp from "../pages/SignUp";
 import RequireAuth from "../hoc/RequireAuth";
 import Dashboard from "../pages/Dashboard";
+import Confirm from "../pages/Confirm";
 
 export const routes = createBrowserRouter(createRoutesFromElements([
 
@@ -12,7 +13,8 @@ export const routes = createBrowserRouter(createRoutesFromElements([
     </Route>,
     //Public Routes
     <Route path="/signin" element={<SignIn/>}></Route>,
-    <Route path="/signup" element={<SignUp/>}></Route>
+    <Route path="/signup" element={<SignUp/>}></Route>,
+    <Route path="/confirm" element={<Confirm/>}></Route>
 ]))
 
 
