@@ -1,15 +1,15 @@
 import { Route, createBrowserRouter, createRoutesFromElements } from "react-router-dom";
-import RequireAuth from "../hoc/RequireAuth";
-import Dashboard from "../pages/Dashboard";
 import SignIn from "../pages/SignIn";
 import SignUp from "../pages/SignUp";
+import RequireAuth from "../hoc/RequireAuth";
 
-const router =  createBrowserRouter(createRoutesFromElements(
-    <Route path="/" element={<RequireAuth/>}>
-        <Route index path="/signin" element={<SignIn/>}></Route>
-    </Route>,
-     <Route path="/dashboard" element={<Dashboard/>}></Route>
-))
+export const routes = createBrowserRouter(createRoutesFromElements([
+
+    //Private Routes
+    <Route path="/" element={<RequireAuth/>}></Route>,
+    //Public Routes
+    <Route path="/signin" element={<SignIn/>}></Route>,
+    <Route path="/signup" element={<SignUp/>}></Route>
+]))
 
 
-export default router
