@@ -7,7 +7,7 @@ import { signUp } from "../services/authNetwork";
 import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
-  const [credentials, setCredentials] = useState({});
+  const [credentials, setCredentials] = useState(null);
     const [error, setError] = useState(false)
 
     function checkObjectValuesNotEmpty(obj) {
@@ -32,7 +32,7 @@ const SignUp = () => {
   const navigate = useNavigate();
 
   const register = async () => {
-   if(checkObjectValuesNotEmpty(credentials) || credentials === null || isEmptyObject(credentials)){
+   if(!checkObjectValuesNotEmpty(credentials) || credentials !== null || !isEmptyObject(credentials)){
     const token = await signUp(credentials);
     setToken(token);
     navigate("/confirm");
