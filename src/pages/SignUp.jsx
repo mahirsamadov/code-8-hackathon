@@ -4,14 +4,17 @@ import singUpRightImg from "../assets/img/signInRightImg.png";
 import { useState } from "react";
 import credentialsHandler from "../helpers/credentialHandler";
 import { signUp } from "../services/authNetwork";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
 
+    const navigate = useNavigate()
     const [credentials, setCredentials] = useState({})
 
    const register = async ()=> { 
    const token = await signUp(credentials)
    setToken(token)
+   navigate('/confirm')
    }
 
    console.log(credentials)

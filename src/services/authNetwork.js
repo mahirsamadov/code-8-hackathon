@@ -1,7 +1,7 @@
 import axios from "axios";
 import { getToken } from "../helpers/tokenSettings";
 
-const URL = 'http://18.222.37.82:9090/api/v1/auth/'
+const URL = 'https://api.sulnar.com/api/v1/auth/'
 const localURL = 'http://172.21.176.1:9090/api/v1/auth/'
 
 const authNetwork = axios.create({
