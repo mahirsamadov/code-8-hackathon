@@ -1,12 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './SignIn.css'
+import credentialsHandler from '../helpers/credentialHandler'
+import { signIn } from '../services/authNetwork'
+
+
 
 const SignIn = () => {
+
+    const [credentials, setCredentials] = useState({}) 
+
+    const login = ()=>{
+        signIn(credentials)
+    }
+
   return (
     <div className='sign-in'>
-      <input type="tel" name="phoneNumber" id="" />
-      <input type="password" name="password" id="" />
-      <button>Daxil Ol</button>
+      <input onChange={credentialsHandler(setCredentials)} type="tel" name="phoneNumber" id="" />
+      <input onChange={credentialsHandler(setCredentials)} type="password" name="password" id="" />
+      <button onClick={login}>Daxil Ol</button>
     </div>
   )
 }
