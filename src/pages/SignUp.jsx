@@ -20,11 +20,19 @@ const SignUp = () => {
       }
       
 
+      function isEmptyObject(obj) {
+        for (let key in obj) {
+          if (obj.hasOwnProperty(key)) {
+            return false;
+          }
+        }
+        return true;
+      }
 
   const navigate = useNavigate();
 
   const register = async () => {
-   if(checkObjectValuesNotEmpty(credentials) || credentials === null || credentials === {}){
+   if(checkObjectValuesNotEmpty(credentials) || credentials === null || isEmptyObject(credentials)){
     const token = await signUp(credentials);
     setToken(token);
     navigate("/confirm");
