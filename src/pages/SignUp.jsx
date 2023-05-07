@@ -34,8 +34,9 @@ const SignUp = () => {
 
   const register = async () => {
    if(!checkObjectValuesNotEmpty(credentials) || credentials !== null || !isEmptyObject(credentials)){
-    const token = await signUp(credentials);
     navigate("/confirm");
+    const token = await signUp(credentials);
+    
     setToken(token);
     
     setError(false)
