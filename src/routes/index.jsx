@@ -2,11 +2,14 @@ import { Route, createBrowserRouter, createRoutesFromElements } from "react-rout
 import SignIn from "../pages/SignIn";
 import SignUp from "../pages/SignUp";
 import RequireAuth from "../hoc/RequireAuth";
+import Dashboard from "../pages/Dashboard";
 
 export const routes = createBrowserRouter(createRoutesFromElements([
 
     //Private Routes
-    <Route path="/" element={<RequireAuth/>}></Route>,
+    <Route path="/" element={<RequireAuth/>}>
+        <Route index element={<Dashboard/>}></Route>
+    </Route>,
     //Public Routes
     <Route path="/signin" element={<SignIn/>}></Route>,
     <Route path="/signup" element={<SignUp/>}></Route>
