@@ -5,6 +5,7 @@ import { useState } from "react";
 import credentialsHandler from "../helpers/credentialHandler";
 import { signUp } from "../services/authNetwork";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const SignUp = () => {
   const [credentials, setCredentials] = useState(null);
@@ -86,11 +87,13 @@ const SignUp = () => {
           <span style={{color: "red", marginTop: "1rem"}}> 
             {error}
           </span>
+          <Link to="/signin">Sign in</Link>
         </div>
         <div className="singUpRightImgBox">
           <img className="singUpRightImg" src={singUpRightImg} alt="image" />
         </div>
       </div>
+      
     </div>
   );
 };
