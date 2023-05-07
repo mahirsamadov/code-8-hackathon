@@ -36,6 +36,7 @@ const SignUp = () => {
     const token = await signUp(credentials);
     setToken(token);
     navigate("/confirm");
+    setError(true)
    }
    else{
        setError("Zəhmət olmasa formu doldurun") 
@@ -53,26 +54,26 @@ const SignUp = () => {
           <p className="singUpLeftSubTitle">
             Qeydiyyat prosesinə xoş gelmisiniz!
           </p>
-          <input required style={ !checkObjectValuesNotEmpty(credentials) ? { border: "1px solid red"} : null}
+          <input required style={ !checkObjectValuesNotEmpty(credentials) || error ? { border: "1px solid red"} : null}
             onChange={credentialsHandler(setCredentials)}
             type="text"
             name="finCode"
             placeholder="Fin kod"
           />
-          <input required style={ !checkObjectValuesNotEmpty(credentials) ? { border: "1px solid red"} : null}
+          <input required style={ !checkObjectValuesNotEmpty(credentials) || error ? { border: "1px solid red"} : null}
             onChange={credentialsHandler(setCredentials)}
             type="number"
             name="serialNumber"
             placeholder="Seria Nömrəsi"
           />
-          <input required style={!checkObjectValuesNotEmpty(credentials) ? { border: "1px solid red"} : null}
+          <input required style={!checkObjectValuesNotEmpty(credentials) || error ? { border: "1px solid red"} : null}
             onChange={credentialsHandler(setCredentials)}
             type="number"
             name="phoneNumber"
             placeholder="Mobil Nömrə"
             id=""
           />
-          <input required style={ !checkObjectValuesNotEmpty(credentials) ? { border: "1px solid red"} : null}
+          <input required style={ !checkObjectValuesNotEmpty(credentials) || error ? { border: "1px solid red"} : null}
             onChange={credentialsHandler(setCredentials)}
             type="password"
             name="password"
