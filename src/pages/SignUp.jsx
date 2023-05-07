@@ -7,19 +7,30 @@ import { signUp } from "../services/authNetwork";
 import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
-  const [credentials, setCredentials] = useState(null);
+  const [credentials, setCredentials] = useState({});
     const [error, setError] = useState(false)
+
+    function checkObjectValuesNotEmpty(obj) {
+        for (let key in obj) {
+          if (obj.hasOwnProperty(key) && obj[key] === '') {
+            return false;
+          }
+        }
+        return true;
+      }
+      
+
 
   const navigate = useNavigate();
 
   const register = async () => {
-   if(credentials){
+   if(checkObjectValuesNotEmpty(credentials) || credentials === null || credentials === {}){
     const token = await signUp(credentials);
     setToken(token);
     navigate("/confirm");
    }
    else{
-
+       setError("Zəhmət olmasa formu doldurun") 
    }
   };
 
@@ -34,26 +45,26 @@ const SignUp = () => {
           <p className="singUpLeftSubTitle">
             Qeydiyyat prosesinə xoş gelmisiniz!
           </p>
-          <input required style={!credentials ? { border: "1px solid red"} : null}
+          <input required style={ !checkObjectValuesNotEmpty(credentials) ? { border: "1px solid red"} : null}
             onChange={credentialsHandler(setCredentials)}
             type="text"
             name="finCode"
             placeholder="Fin kod"
           />
-          <input required style={!credentials ? { border: "1px solid red"} : null}
+          <input required style={ !checkObjectValuesNotEmpty(credentials) ? { border: "1px solid red"} : null}
             onChange={credentialsHandler(setCredentials)}
             type="number"
             name="serialNumber"
             placeholder="Seria Nömrəsi"
           />
-          <input required style={!credentials ? { border: "1px solid red"} : null}
+          <input required style={!checkObjectValuesNotEmpty(credentials) ? { border: "1px solid red"} : null}
             onChange={credentialsHandler(setCredentials)}
             type="number"
             name="phoneNumber"
             placeholder="Mobil Nömrə"
             id=""
           />
-          <input required style={!credentials ? { border: "1px solid red"} : null}
+          <input required style={ !checkObjectValuesNotEmpty(credentials) ? { border: "1px solid red"} : null}
             onChange={credentialsHandler(setCredentials)}
             type="password"
             name="password"
@@ -63,6 +74,9 @@ const SignUp = () => {
           <button type="submit" onClick={register} className="sigInBtn">
             Davam et
           </button>
+          <span style={{color: "red", marginTop: "1rem"}}> 
+            {error}
+          </span>
         </div>
         <div className="singUpRightImgBox">
           <img className="singUpRightImg" src={singUpRightImg} alt="image" />
