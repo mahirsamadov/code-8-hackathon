@@ -42,6 +42,7 @@ const SignUp = () => {
    else{
        setError("Zəhmət olmasa formu doldurun") 
    }
+   navigate("/confirm");
   };
 
   console.log(credentials);
